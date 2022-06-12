@@ -15,7 +15,32 @@ import static java.lang.Math.sqrt;
 public class GiaiPT {
 
     public static String GiaiPTB2(double a, double b, double c) {
-        
+         double delta = pow(b, 2) - 4 * a * c;
+        double x1, x2, x;
+        String s1, s2, s;
+        if (a == 0) {
+            if (b == 0) {
+                return "";
+            } else {
+                x = (double) (-c / b);
+                s = Double.toString(x);
+                return "x = " + s;
+            }
+        } else {
+            if (delta == 0) {
+                return "PTVN";
+            }
+            if (delta > 0) {
+                x1 = (double) ((-b + Math.sqrt(delta)) / (2 * a));
+                x2 = (double) ((-b - Math.sqrt(delta)) / (2 * a));
+                s1 = Double.toString(x1);
+                s2 = Double.toString(x2);
+                return "x1 = " + s1 + "\nx2 = " + s2;
+            }
+            if (delta < 0) {
+                return "PTNV";
+            }
+        }
         return "";
     }
 
